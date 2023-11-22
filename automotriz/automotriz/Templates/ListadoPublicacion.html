@@ -1,0 +1,53 @@
+{% extends 'index_admin.html' %}
+{% block content %}
+    {% for x in ViewPubli %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <img src="{{ x.id_auto.imagen.url }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        {{x.id}}
+                        
+                        <h5 class="card-title">Modelo: {{x.id_auto.modelo| title }}</h5>
+                        <h5>Año: {{x.id_auto.year}}</h5>
+                        {{x.id_auto}}
+                        <p>Precio: ${{x.precio_venta}}</p>
+                        <p>Marca: {{x.id_auto.marca}}</p>
+                        <div class=" d-grid gap-2">
+                            {% if perms.VistaCliente.add_venta %}
+                                <button type="button" class="btn btn-outline-primary">
+                                    <a href="#">Vender</a>
+                                </button>
+                            {% endif %}
+                            {% if perms.VistaCliente.add_venta %}
+                            {% for x in ViewPubli%}
+                                        {% if x.disponiblidad == 'Activo'  %}
+                                        <button type="button" class="btn btn-primary">
+                                            <p>ACTIVO</p>
+                                        </button>
+                                        {% elif x.disponiblidad != 'Activo' %}
+                                        <button type="button" class="btn btn-primary">
+                                            <p>vendido</p>
+                                        </button>
+                                        {% endif %}
+                                    {% endfor %}
+                            {% endif %}
+                            {% if perms.VistaCliente.change_publicacion%}
+                                <button type="button" class="btn btn-secondary">
+                                    <a href="{% url 'automotrizz:changePublicacion' x.id %}">Editar</a>
+                                </button>
+                            {% endif %}
+                            {% if perms.VistaCliente.delete_publicacion%}
+                                <button type="button" class="btn btn-warning">
+                                    <a href="{% url 'automotrizz:eliminarPublicacion' x.id %}">Eliminar</a>
+                                </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

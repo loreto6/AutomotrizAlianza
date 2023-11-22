@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+{% for x in tarjeta %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ x.id_auto.imagen.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h4 class="card-title">Modelo: {{x.id_auto.modelo| title }}</h4>
+      <p>Año: {{x.id_auto.year}}</p>
+      <p>Precio: ${{x.precio_venta}}</p>
+      <p>Marca: {{x.id_auto.marca}}</p>
+      <button type="submit" class="btn btn-primary">
+        <a href="{% url 'automotrizz:publicacion_detalle' x.id %}" class="card-title">Mas informacion</a>
+      </button>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

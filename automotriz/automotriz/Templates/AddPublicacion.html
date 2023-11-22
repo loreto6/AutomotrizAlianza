@@ -1,0 +1,17 @@
+{% extends 'index_admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1>Realizar publicacion</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{FormPubli | crispy }}
+    <button type="input" class="btn btn-outline-primary">publicar</button>
+    
+</form>
+{% if mensaje %}
+    <div class="alert alert-success">
+        {{ mensaje }}
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+.items {
+    position: absolute;
+    left: 0; /* Coloca el contenedor a la izquierda */
+    top: 0; /* Lo coloca en la parte superior */
+    bottom: 0; /* Lo coloca en la parte inferior */
+    width: 250px; /* Ancho deseado */
+    background-color: #ccc;
+    margin: auto;
+}
+

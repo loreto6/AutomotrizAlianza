@@ -1,0 +1,30 @@
+{% extends 'index_admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1>Registros</h1>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Ver Registro</th>
+      </tr>
+    </thead>
+    {% for x in registro %}
+    <tbody>
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{x.modelo}}</td>
+        <td>{{x.marca}}</td>
+        <td>{{x.valor_inicial}}</td>
+        <td><a href="{% url 'automotrizz:auto_detalle' x.pk %}">Registro</a></td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+{% endblock %}

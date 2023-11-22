@@ -1,0 +1,31 @@
+html {
+    scroll-behavior: smooth;
+}
+
+nav{
+    background-color: rgb(255, 255, 255)
+}
+
+nav li{
+    font-weight: bold;
+    font-size:21px;
+    padding-left:9px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+footer{
+    background-color: rgb(3, 10, 68)
+}
+
+footer ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+
+.link-ico{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    
+}

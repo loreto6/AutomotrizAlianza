@@ -1,0 +1,65 @@
+{% extends 'index_admin.html' %}
+{% block content %}
+
+
+
+
+{% for x in autos %}
+<div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{ x.imagen.url }}" class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                
+                
+
+
+                <h5 class="card-title">{{x.modelo}}</h5>
+                <p class="card-text">{{x.year}}</p>
+                <p class="card-text">{{x.valor_inicial}}</p>
+                
+                {% if perms.VistaCliente.add_publicacion %}
+                
+                    
+                {% endif %}
+
+
+                {% if perms.VistaCliente.view_publicacion %}
+                <button type="submit" class="btn btn-secondary" "{% url 'automotrizz:auto_detalle' x.id %}">
+                    <a href=>Más detalle</a>
+                </button>
+                {% endif %}
+
+
+
+                {% if perms.VistaCliente.change_publicacion %}
+                <form method="post" action="{% url 'automotrizz:changeAuto' x.id %}">
+                    
+                    {% csrf_token %}
+                    
+                    <button type="submit">Editar</button>
+                </form>
+                <!--<button type="button" class="btn btn-success">
+                    <a href="{% url 'automotrizz:changeAuto' x.id %}">Editar</a>
+                </button>--->
+                {% endif %}
+                {% if perms.VistaCliente.delete_publicacion %}
+                <button type="button" class="btn btn-danger">
+                    <a href="{% url 'automotrizz:eliminarAuto' x.id %}">Eliminar</a>
+                </button>
+                {% endif %}
+            </div>
+            <div class="container bg-primary">
+                <p>sajdsajds</p>
+                
+                {{encontrado}}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

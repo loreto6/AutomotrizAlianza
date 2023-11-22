@@ -1,0 +1,22 @@
+{% extends 'index_admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1>Datos de cliente</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{FormCliente | crispy}}
+
+    <button type="submit" class="button">Continuar</button>
+    
+</form>
+<button>
+    <a href="#">Cliente existente</a> <!---Tendria que mandar a otro template e ingresar su rut para comprobar que ya esté registrado en la BD y continuar con la venta-->
+</button> 
+{% if mensaje %}
+    <div class="alert alert-success">
+        {{ mensaje }}
+</div>
+{% endif %}
+{% endblock %}

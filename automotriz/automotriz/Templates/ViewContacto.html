@@ -1,0 +1,34 @@
+{% extends 'index_admin.html' %}
+
+{% block content %}
+
+{% for i in contactos%}
+<div class="container my-3" style="border-style: dotted; border-radius: 10px;">
+    <div class="row">
+        <div class="col-lg-7 my-3">
+            <div class="container d-flex col-lg-12">
+               <h5><pre>Nombre: {{i.nombre}} | Correo: <a href="mailto:{{i.correo}}">{{i.correo}}</a></pre></h5> 
+            </div>
+            <div class="container col-lg-12">
+                <h6>Descripción:</h6>
+                <p>{{i.descripcion}}</p>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="card" style="width: 18rem;">
+                <img src="{{i.id_publicación.id_auto.imagen.url}}" class="card-img-top">
+                <div class="card-body">
+                    <p>{{i.id_publicación.id_auto.marca}}</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}

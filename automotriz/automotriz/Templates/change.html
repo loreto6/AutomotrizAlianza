@@ -1,0 +1,10 @@
+{% extends 'index_admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1> Editar registro </h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{changeform | crispy }}
+    <button type="submit" class="button">Editar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotriz Alianza</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Static Css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- iconos Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img class='logo' src="static/imagenes/logo1.png" alt="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'automotrizz:index_admin' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" >Contactanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Ubicación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Horarios de Atención</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+    <div class="container">
+        <div class="container">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+        </div>
+        <div class="container d-flex my-4 py-2" style="justify-content:space-around; ">
+            {% block contenido %}
+            {% endblock %}
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4 py-2">
+                    <ul class="text-light">
+                        <li>
+                            <h4><i class="bi bi-telephone px-2"></i>Contactanos</h4>
+                            <ol style="list-style: none;">
+                                <li>
+                                    <a class="link-ico"
+                                        href="https://web.facebook.com/p/Automotriz-Alianza-100062960034928/?_rdc=1&_rdr"><i
+                                            class="bi bi-facebook ico"></i> Automotriz Alianza</a>
+                                </li>
+                                <li>
+                                    <a class="link-ico" href="https://www.instagram.com/automotriz.alianzaafta/"><i
+                                            class="bi bi-instagram ico"></i> automotriz.alianzaafta</a>
+                                </li>
+                                <li>
+                                    <a class="link-ico"><i class="bi bi-whatsapp ico"></i> +56942764908</a>
+                                </li>
+                                <li>
+                                    <a class="link-ico" href="mailto:alianzafinanciamiento@gmail.com">
+                                        <i class="bi bi-envelope ico" style="width: 20px;"></i> Automotriz Alianza
+                                    </a>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 py-2">
+                    <ul class="text-light">
+                        <li>
+                            <h4><i class="bi bi-geo-alt px-2"></i>Ubicación</h4>
+                            <a class="link-ico"
+                                href="https://www.google.cl/maps/place/14+de+Febrero+2538,+1271623+Antofagasta/@-23.6516367,-70.394682,17z/data=!4m6!3m5!1s0x96afd51a1a7d7641:0xff53471a9ad7b6bd!8m2!3d-23.6517708!4d-70.3946389!16s%2Fg%2F11h1yw4b85?entry=ttu">14
+                                de Febrero #2538-#2959 - Antofagasta</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 py-2">
+                    <ul class="text-light">
+                        <li>
+                            <h4><i class="bi bi-clock-history px-2"></i>Horarios de atención</h4>
+                            <ol style="list-style: none;">
+                                <li>
+                                    <h6>Lunes a Viernes</h6>
+                                    <p>09:00 a 13:30 / 15:30 a 19:00</p>
+                                </li>
+                                <li>
+                                    <h6>Sábado</h6>
+                                    <p>10:00 a 13:00</p>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
+</html>
